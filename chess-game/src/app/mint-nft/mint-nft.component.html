@@ -1,0 +1,8 @@
+<div *ngIf="account" class="container">
+    <p>Connected account: {{ account }}</p>
+    <button mat-raised-button color="primary" (click)="mint()">Mint NFT</button>
+  </div>
+  <div *ngIf="!account">
+    <p>Please connect your MetaMask wallet.</p>
+  </div>
+  
