@@ -7,19 +7,28 @@ import { BlockchainService } from '../blockchain.service';
   styleUrls: ['./mint-nft.component.scss']
 })
 export class MintNftComponent implements OnInit {
-  account: string | undefined;
+  accounts: string[] = [];
+  mintedNfts: number[] = [];
 
   constructor(private blockchainService: BlockchainService) {}
 
   ngOnInit(): void {
-    this.blockchainService.getAccountObservable().subscribe(account => {
-      this.account = account;
+    this.blockchainService.getAccountObservable().subscribe(accounts => {
+      if (accounts) {
+        this.accounts = accounts;
+      }
     });
   }
 
-  mint() {
-    if (this.account) {
-      this.blockchainService.mintNFT(this.account);
+  async mint(account: string) {
+    try {
+      const result = await this.blockchainService.mintNFT(account);
+      if (result && result.events && result.events.Transfer && result.events.Transfer.returnValues) {
+        const tokenId = result.events.Transfer.returnValues.tokenId;
+        this.mintedNfts.push(tokenId);
+      }
+    } catch (error) {
+      console.error("Minting failed", error);
     }
   }
 }

@@ -22,14 +22,15 @@
     "@angular/router": "^18.0.0",
     "@metamask/detect-provider": "^2.0.0",
     "@openzeppelin/contracts": "^5.0.2",
+    "chess.js": "^1.0.0-beta.8",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "web3": "^4.8.0",
     "zone.js": "~0.14.3"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "^18.0.0",
-    "@angular/cli": "^18.0.0",
+    "@angular-devkit/build-angular": "^18.0.1",
+    "@angular/cli": "^18.0.1",
     "@angular/compiler-cli": "^18.0.0",
     "@types/jasmine": "~5.1.0",
     "jasmine-core": "~5.1.0",

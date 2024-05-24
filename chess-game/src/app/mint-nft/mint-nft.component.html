@@ -1,8 +1,18 @@
-<div *ngIf="account" class="container">
-    <p>Connected account: {{ account }}</p>
-    <button mat-raised-button color="primary" (click)="mint()">Mint NFT</button>
-  </div>
-  <div *ngIf="!account">
-    <p>Please connect your MetaMask wallet.</p>
-  </div>
-  
+<div *ngIf="accounts.length > 0" class="container">
+  <p>Connected accounts:</p>
+  <ul>
+    <li *ngFor="let account of accounts">{{ account }}</li>
+  </ul>
+  <button mat-raised-button color="primary" (click)="mint(accounts[0])">Mint NFT for Player 1</button>
+  <button mat-raised-button color="primary" (click)="mint(accounts[1])" *ngIf="accounts[1]">Mint NFT for Player 2</button>
+</div>
+<div *ngIf="accounts.length === 0">
+  <p>Please connect your MetaMask wallet.</p>
+</div>
+
+<div *ngIf="mintedNfts.length > 0" class="minted-nfts">
+  <h3>Minted NFTs:</h3>
+  <ul>
+    <li *ngFor="let nft of mintedNfts">NFT ID: {{ nft }}</li>
+  </ul>
+</div>
