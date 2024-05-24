@@ -1,0 +1,25 @@
+.chessboard {
+    display: grid;
+    grid-template-rows: repeat(8, 1fr);
+    gap: 1px; // Optional: adjust gap between squares
+  
+    .row {
+      display: grid;
+      grid-template-columns: repeat(8, 1fr);
+  
+      .square {
+        width: 50px; // Adjust size as needed
+        height: 50px; // Adjust size as needed
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid #000; // Add border to visualize squares
+        background-color: #f0d9b5; // Light square color
+      }
+  
+      .square:nth-child(odd) {
+        background-color: #b58863; // Dark square color
+      }
+    }
+  }
+  

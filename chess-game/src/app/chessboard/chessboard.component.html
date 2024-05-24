@@ -1,0 +1,8 @@
+<div class="chessboard">
+    <div *ngFor="let row of board; let rowIndex = index" class="row">
+      <div *ngFor="let square of row; let colIndex = index" class="square">
+        {{ square }}
+      </div>
+    </div>
+  </div>
+  
